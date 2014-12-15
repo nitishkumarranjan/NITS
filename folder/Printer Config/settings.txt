@@ -1,0 +1,4 @@
+COM1: $ printer port 
+32 $ padding_item
+6 $ padding_quantity
+6 $ padding_cost

@@ -1,0 +1,4 @@
+delay = 3.0
+mainDelay = 1.6
+highlight-color = #7259e8
+bcDelay = 0.7
