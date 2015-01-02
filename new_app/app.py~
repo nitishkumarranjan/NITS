@@ -37,7 +37,7 @@ class MainFrame(Frame):
 	    self.ProcessPresentNode()
 	
 	def initData(self):
-	    self.loadSettings()
+    
 	    #hack here have to look into these
 	    self.settingsOn = False
 
@@ -291,7 +291,6 @@ class MainFrame(Frame):
 	
 	def Restart(self):
 	    self.after_cancel(self.state["after_id"])
-	    self.loadSettings()
 	    self.setState()
 	    self.loadRoots()
 	    self.ProcessPresentNode()
