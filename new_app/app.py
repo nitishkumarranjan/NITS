@@ -135,6 +135,9 @@ class MainFrame(Frame):
             return New_Array
 	
 	def ProcessPresentNode(self):
+	    #clear all backgrounds 
+	    self.ClearAllBackgrounds()
+	    
 	    #clear all images 
 	    self.ClearAllImages()
 	    
@@ -265,7 +268,6 @@ class MainFrame(Frame):
 	def ClearAllBackgrounds(self):
 	    for each in self.state["loop_list"]:
 		each.configure(background=self.bgcolor)
-
 	   	
 	def ClearBillLog(self):
 	    for i in range(0,self.state["billListIndex"]+1):
@@ -299,7 +301,6 @@ class MainFrame(Frame):
     	
 	def CallSettingsTab(self):
 	    if not self.settingsOn:
-		self.state["loop"]=False
 		self.settingsOn = True
 		self.newWindowS = Toplevel(self.master)
 	    	self.app = SettingsTab(self.newWindowS)
@@ -311,10 +312,12 @@ class MainFrame(Frame):
     	    	self.newWindowS.mainloop()
 	
 	def QuitSettingsTab(self):
-		self.state["loop"]=True
 		self.settingsOn = False
-		self.loadRoots()
-		self.ProcessPresentNode()
+		self.after_cancel(self.state["after_id"])
+	    	self.loadSettings()
+	    	self.setState()
+	    	self.loadRoots()
+	    	self.ProcessPresentNode()
 		self.newWindowS.destroy()
 
         def initUI(self):

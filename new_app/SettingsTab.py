@@ -331,7 +331,8 @@ class SettingsTab(Frame):
 	    item["name"] = self.itemName.get()
 	    item["image"] = self.imageName.get()
 	    item["cost"] = int(self.itemCost.get())
-	    item["audio"] = self.audioString.get()
+	    if len(self.audioString.get())>0:
+		item["audio"] = self.audioString.get()
 	    item["isleaf"] = False 
 	    item["quantity"] = 6
 	    item["children"]={}
